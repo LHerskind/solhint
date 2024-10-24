@@ -24,6 +24,7 @@ module.exports = Object.freeze({
         maxLength: 32,
       },
     ],
+    'strict-override': 'warn',
     'constructor-syntax': 'warn',
     'gas-calldata-parameters': 'warn',
     'gas-custom-errors': 'warn',
@@ -43,6 +44,7 @@ module.exports = Object.freeze({
     'foundry-test-functions': ['warn', ['setUp']],
     'func-name-mixedcase': 'warn',
     'func-named-parameters': ['warn', 4],
+    'func-param-name-leading-underscore': 'warn',
     'func-param-name-mixedcase': 'warn',
     'immutable-vars-naming': [
       'warn',
@@ -53,12 +55,14 @@ module.exports = Object.freeze({
     'imports-order': 'warn',
     'modifier-name-mixedcase': 'warn',
     'named-parameters-mapping': 'warn',
+    'private-func-leading-underscore': ['warn'],
     'private-vars-leading-underscore': [
       'warn',
       {
         strict: false,
       },
     ],
+    'private-vars-no-leading-underscore': ['warn'],
     'use-forbidden-name': 'warn',
     'var-name-mixedcase': 'warn',
     'imports-on-top': 'warn',

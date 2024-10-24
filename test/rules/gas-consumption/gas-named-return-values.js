@@ -88,6 +88,7 @@ describe('Linter - gas-named-return-values', () => {
         'compiler-version': 'off',
         'comprehensive-interface': 'off',
         'foundry-test-functions': 'off',
+        'func-param-name-leading-underscore': 'off',
       },
     })
 
