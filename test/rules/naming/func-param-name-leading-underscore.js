@@ -5,6 +5,7 @@ const { contractWith, libraryWith } = require('../../common/contract-builder')
 describe('Linter - func-param-name-leading-underscore', () => {
   const SHOULD_WARN_CASES = [
     // warn when param names don't start with _
+    contractWith('struct foo { uint bar; }\nfunction foo(foo memory bar) {}'),
 
     contractWith('function foo(uint bar) {}'),
     contractWith('function foo(uint bar) internal {}'),
@@ -20,9 +21,7 @@ describe('Linter - func-param-name-leading-underscore', () => {
   ]
 
   const SHOULD_NOT_WARN_CASES = [
-    // warn when param names start with _
-
-    // don't warn when private/internal/default names start with _
+    contractWith('struct foo { uint bar; }\nfunction foo(foo memory _bar) {}'),
 
     // don't warn when public/external names don't start with _
     contractWith('uint public foo;'),

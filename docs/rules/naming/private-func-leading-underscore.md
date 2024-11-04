@@ -9,7 +9,7 @@ title:       "private-func-leading-underscore | Solhint"
 ![Default Severity Badge warn](https://img.shields.io/badge/Default%20Severity-warn-yellow)
 
 ## Description
-Private and internal function names must start with a single underscore, unless they are in a library.
+Private and internal function names must start with a single underscore, unless they are in a library or free.
 
 ## Options
 This rule accepts an array of options:

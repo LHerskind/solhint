@@ -1,6 +1,6 @@
 const assert = require('assert')
 const linter = require('../../../lib/index')
-const { contractWith, libraryWith } = require('../../common/contract-builder')
+const { contractWith, libraryWith, freeFunction } = require('../../common/contract-builder')
 
 describe('Linter - private-func-leading-underscore', () => {
   const SHOULD_WARN_CASES = [
@@ -20,6 +20,12 @@ describe('Linter - private-func-leading-underscore', () => {
     libraryWith('function _foo() private {}'),
     libraryWith('function _foo() public {}'),
     libraryWith('function _foo() external {}'),
+
+    freeFunction('function _foo() {}'),
+    freeFunction('function _foo() internal {}'),
+    freeFunction('function _foo() private {}'),
+    freeFunction('function _foo() public {}'),
+    freeFunction('function _foo() external {}'),
   ]
 
   const SHOULD_NOT_WARN_CASES = [
@@ -37,6 +43,10 @@ describe('Linter - private-func-leading-underscore', () => {
     // don't warn when internal/private functions are in libraries don't start with _
     libraryWith('function foo() internal {}'),
     libraryWith('function foo() private {}'),
+
+    // don't warn when internal/private functions in free functions don't start with _
+    freeFunction('function foo() internal {}'),
+    freeFunction('function foo() private {}'),
 
     // don't warn for constructors
     contractWith('constructor() public {}'),

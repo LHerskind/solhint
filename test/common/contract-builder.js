@@ -1,5 +1,13 @@
 const { times } = require('lodash')
 
+function freeFunction(code) {
+  return `
+      pragma solidity 0.4.4;
+
+      ${code}
+    `
+}
+
 function contractWith(code) {
   return `
       pragma solidity 0.4.4;
@@ -68,6 +76,7 @@ function repeatLines(line, count) {
 module.exports = {
   contractWith,
   libraryWith,
+  freeFunction,
   funcWith,
   modifierWith,
   multiLine,
